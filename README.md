@@ -1,3 +1,17 @@
+## 📱 APK 다운로드
+
+### 고객용 앱
+- [SmartCall_고객용.apk] (https://drive.google.com/drive/folders/19HP6i7xSsLWNeS6n9F-8ONVHlj6nOo3W?usp=drive_link) (48.0MB)
+
+### 업주용 앱  
+- [SmartCall_업주용.apk] (https://drive.google.com/drive/folders/19HP6i7xSsLWNeS6n9F-8ONVHlj6nOo3W?usp=drive_link) (53.4MB)
+
+### 설치 방법
+1. APK 파일 다운로드
+2. 안드로이드 기기에서 "알 수 없는 소스" 설치 허용
+3. APK 파일 실행하여 설치
+
+
 # 🍽️ SmartCall - 스마트폰 음식 주문 플랫폼
 
 ## 📱 프로젝트 개요
@@ -150,3 +164,4 @@ flutter build apk --release
 ---
 
 **SmartCall** - 더 스마트한 음식 주문 경험을 제공합니다! 🍽️📱
+
