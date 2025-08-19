@@ -1,198 +1,152 @@
-2025.0819
+# 🍽️ SmartCall - 스마트폰 음식 주문 플랫폼
 
-# 스마트콜 (SmartCall) - 전화 주문 플랫폼
+## 📱 프로젝트 개요
 
-음식점 점주와 고객을 연결하는 간편한 전화 주문 플랫폼입니다.
+SmartCall은 음식점과 고객을 연결하는 스마트폰 주문 플랫폼입니다. 두 개의 독립적인 앱으로 구성되어 있습니다:
 
-## 📱 앱 구성
+- **고객용 앱**: 음식점 검색, 주문, 즐겨찾기 기능
+- **업주용 앱**: 가게 정보 관리, 메뉴 관리, 통계 확인 기능
 
-### 🏪 Merchant App (점주용 앱)
-점주가 가게 정보를 관리하고 구독을 통해 고객에게 노출시키는 앱
+## 🎯 주요 기능
 
-**주요 기능:**
-- ✅ 회원가입/로그인 시스템
-- ✅ 가게 정보 관리 (상호명, 전화번호, 소개)
-- ✅ 메뉴 관리 (메뉴 추가/삭제, 이미지 업로드)
-- ✅ 구독 관리 (월 구독을 통한 고객 앱 노출)
-- ✅ 실시간 미리보기 (고객 앱에서 보이는 모습)
-- ✅ 데이터 영구 저장 (SharedPreferences)
+### 고객용 앱 기능
+- 🔐 **로그인/회원가입**: 이메일 기반 인증 시스템
+- 🏠 **홈 화면**: 음식점 목록 및 검색 기능
+- 🍕 **음식 카테고리**: 한식, 중식, 일식, 분식, 치킨, 피자, 디저트
+- ❤️ **즐겨찾기**: 선호하는 음식점 저장
+- 📋 **주문내역**: 과거 주문 기록 확인
+- 👤 **마이페이지**: 사용자 정보 및 설정 관리
+- 📞 **전화 주문**: 원클릭 전화 연결 기능
 
-### 🛍️ Customer App (고객용 앱)
-가게를 검색하고 전화로 주문할 수 있는 앱
-
-**주요 기능:**
-- ✅ 가게 리스트 및 검색
-- ✅ 가게 상세 정보 보기
-- ✅ 메뉴 보기
-- ✅ 원터치 전화 주문
-- ✅ 즐겨찾기 기능
-- ✅ 실시간 데이터 동기화
+### 업주용 앱 기능
+- 🏪 **가게 정보 관리**: 상호명, 주소, 연락처, 영업시간 설정
+- 📸 **로고 업로드**: 가게 로고 이미지 등록
+- 🍽️ **메뉴 관리**: 메뉴 추가/수정/삭제 기능
+- 💰 **구독 관리**: 월 49,500원 구독료 관리 (부가세 포함)
+- 📊 **통계 확인**: 일간/주간/월간 주문 통계
+- 📱 **반응형 UI**: 다양한 화면 크기 지원
 
 ## 🛠️ 기술 스택
 
-- **Framework:** Flutter 3.24.x
-- **언어:** Dart
-- **상태 관리:** StatefulWidget
-- **로컬 저장소:** SharedPreferences
-- **UI/UX:** Material Design 3
-- **폰트:** Google Fonts (Noto Sans Korean)
-- **이미지 처리:** Image Picker
-- **전화 연동:** URL Launcher
+- **프레임워크**: Flutter 3.x
+- **언어**: Dart 3.x
+- **상태 관리**: Local State Management
+- **로컬 저장소**: SharedPreferences
+- **UI 라이브러리**: Material Design 3
+- **폰트**: Google Fonts (Noto Sans KR)
+- **아이콘**: Flutter Launcher Icons
 
-## 📂 프로젝트 구조
+## 📦 설치 및 실행
 
-```
-smartcall_flutter/
-├── apps/
-│   ├── merchant_app/           # 점주용 앱
-│   │   ├── lib/
-│   │   │   ├── main.dart
-│   │   │   ├── ui/theme.dart
-│   │   │   ├── models/business.dart
-│   │   │   ├── services/business_service.dart
-│   │   │   └── screens/
-│   │   │       ├── auth/        # 로그인/회원가입
-│   │   │       ├── dashboard/   # 메인 대시보드
-│   │   │       ├── business/    # 가게 정보 관리
-│   │   │       ├── menu/        # 메뉴 관리
-│   │   │       └── subscription/ # 구독 관리
-│   │   └── assets/images/
-│   └── customer_app/           # 고객용 앱
-│       ├── lib/
-│       │   ├── main.dart
-│       │   ├── ui/theme.dart
-│       │   ├── models/business.dart
-│       │   ├── services/business_service.dart
-│       │   └── screens/
-│       │       ├── home/        # 홈 화면
-│       │       └── business/    # 가게 상세
-│       └── assets/images/
-└── README.md
-```
-
-## 🚀 시작하기
-
-### 필요 사항
-- Flutter SDK 3.24.x 이상
-- Dart SDK 3.5.x 이상
-- Android Studio / VS Code
-- Android 디바이스 또는 에뮬레이터
-
-### 설치 및 실행
-
-1. **프로젝트 클론**
+### 1. APK 파일 설치
 ```bash
-git clone [repository-url]
-cd smartcall_flutter
+# 안드로이드 기기에서
+adb install SmartCall_고객용.apk
+adb install SmartCall_업주용.apk
 ```
 
-2. **Merchant App 실행**
+### 2. 개발 환경에서 실행
 ```bash
+# 고객용 앱
+cd apps/customer_app
+flutter pub get
+flutter run
+
+# 업주용 앱
 cd apps/merchant_app
 flutter pub get
 flutter run
 ```
 
-3. **Customer App 실행**
-```bash
-cd apps/customer_app
-flutter pub get
-flutter run
+## 🏗️ 프로젝트 구조
+
+```
+smartcall_flutter/
+├── apps/
+│   ├── customer_app/          # 고객용 앱
+│   │   ├── lib/
+│   │   │   ├── main.dart
+│   │   │   ├── ui/
+│   │   │   ├── screens/
+│   │   │   ├── models/
+│   │   │   └── services/
+│   │   └── pubspec.yaml
+│   └── merchant_app/          # 업주용 앱
+│       ├── lib/
+│       │   ├── main.dart
+│       │   ├── ui/
+│       │   ├── screens/
+│       │   ├── models/
+│       │   └── services/
+│       └── pubspec.yaml
+└── README.md
 ```
 
-### 빌드
-```bash
-# Debug APK 생성
-flutter build apk --debug
+## 🎨 UI/UX 특징
 
-# Release APK 생성  
+- **Material Design 3**: 최신 Material Design 가이드라인 적용
+- **반응형 디자인**: 다양한 화면 크기 지원
+- **한국어 최적화**: Noto Sans KR 폰트 사용
+- **직관적 네비게이션**: 하단 네비게이션 바
+- **일관된 색상 체계**: 브랜드 컬러 적용
+
+## 🔧 개발 환경 설정
+
+### 필수 요구사항
+- Flutter SDK 3.x 이상
+- Dart SDK 3.x 이상
+- Android Studio / VS Code
+- Android SDK (API 21 이상)
+
+### 설치 명령어
+```bash
+# Flutter 설치 확인
+flutter doctor
+
+# 의존성 설치
+flutter pub get
+
+# 앱 실행
+flutter run
+
+# APK 빌드
 flutter build apk --release
 ```
 
-## 📋 사용 방법
+## 📱 앱 권한
 
-### 점주 (Merchant App)
-1. **회원가입/로그인** - 점주 계정 생성
-2. **가게 정보 입력** - 상호명, 전화번호, 소개 작성
-3. **메뉴 등록** - 메뉴 이름, 가격, 사진 등록
-4. **구독 활성화** - 월 구독을 통해 고객 앱에 노출
-5. **전화 주문 대기** - 고객의 전화 주문 접수
+### 고객용 앱
+- 인터넷 연결
+- 전화 걸기
+- 저장소 접근 (이미지 저장)
 
-### 고객 (Customer App)
-1. **가게 검색** - 이름이나 음식 종류로 검색
-2. **가게 선택** - 원하는 가게 상세 정보 확인
-3. **메뉴 확인** - 가격과 메뉴 사진 확인
-4. **전화 주문** - 원터치로 가게에 전화 연결
-5. **즐겨찾기** - 자주 주문하는 가게 저장
+### 업주용 앱
+- 인터넷 연결
+- 카메라 접근
+- 저장소 접근 (이미지 업로드)
 
-## 🔄 데이터 동기화
+## 🚀 배포 정보
 
-두 앱 간의 데이터는 SharedPreferences를 통해 실시간으로 동기화됩니다:
+- **최소 Android 버전**: API 21 (Android 5.0)
+- **타겟 Android 버전**: API 34 (Android 14)
+- **고객용 앱 크기**: 48.0MB
+- **업주용 앱 크기**: 53.4MB
 
-- 점주가 가게 정보를 수정하면 고객 앱에 즉시 반영
-- 메뉴 추가/삭제 시 고객 앱에서 바로 확인 가능
-- 구독 상태에 따라 고객 앱 노출 여부 제어
+## 🔄 업데이트 내역
 
-## 💳 구독 시스템
+### v1.0.0 (2024-01-19)
+- ✅ 기본 로그인/회원가입 기능
+- ✅ 음식점 검색 및 상세 정보
+- ✅ 즐겨찾기 기능
+- ✅ 주문내역 관리
+- ✅ 가게 정보 및 메뉴 관리
+- ✅ 통계 기능
+- ✅ 구독 관리 시스템
 
-- **월 구독료:** 29,900원
-- **구독 혜택:**
-  - 고객 앱에 가게 노출
-  - 전화 주문 서비스
-  - 주문 통계 제공 (향후 기능)
-  - 고객 지원
+## 📞 지원 및 문의
 
-## 🎨 디자인 시스템
-
-### 컬러 팔레트
-- **Primary Green:** `#1F402D` - 메인 브랜드 컬러
-- **Secondary Orange:** `#F2994A` - 포인트 컬러
-- **Background Cream:** `#FFF6E6` - 배경색
-- **Text:** `#0F2A1E` - 텍스트 컬러
-
-### 특징
-- 한국어 최적화 (Noto Sans Korean)
-- Material Design 3 기반
-- 직관적이고 깔끔한 UI
-- 접근성 고려한 대비율
-
-## 🔮 향후 계획
-
-### Phase 2 (중기)
-- [ ] 실제 결제 시스템 연동 (Stripe/PortOne)
-- [ ] 푸시 알림 시스템
-- [ ] 주문 내역 관리
-- [ ] 평점 및 리뷰 시스템
-
-### Phase 3 (장기)
-- [ ] 백엔드 시스템 구축 (Firebase/Supabase)
-- [ ] 실시간 주문 추적
-- [ ] 배달 시스템 연동
-- [ ] 마케팅 도구 제공
-
-## 🐛 알려진 이슈
-
-- 현재 로컬 저장소만 지원 (디바이스 간 동기화 불가)
-- 이미지는 로컬에만 저장됨
-- 오프라인 상태에서는 동기화 불가
-
-## 🤝 기여하기
-
-1. Fork 프로젝트
-2. Feature 브랜치 생성 (`git checkout -b feature/AmazingFeature`)
-3. 변경사항 커밋 (`git commit -m 'Add some AmazingFeature'`)
-4. 브랜치에 Push (`git push origin feature/AmazingFeature`)
-5. Pull Request 생성
-
-## 📝 라이선스
-
-이 프로젝트는 MIT 라이선스 하에 있습니다. 자세한 내용은 `LICENSE` 파일을 참조하세요.
-
-## 📞 지원
-
-문제가 있거나 제안사항이 있으시면 이슈를 생성해주세요.
+개발 관련 문의사항이나 버그 리포트는 언제든 연락주세요!
 
 ---
 
-**Made with ❤️ using Flutter**
-
+**SmartCall** - 더 스마트한 음식 주문 경험을 제공합니다! 🍽️📱
